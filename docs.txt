@@ -1,0 +1,65 @@
+JWT Revocation
+http://waiting-for-dev.github.io/blog/2017/01/23/stand_up_for_jwt_revocation/
+
+
+Docs For Devise-JWT
+https://medium.com/@mazik.wyry/rails-5-api-jwt-setup-in-minutes-using-devise-71670fd4ed03
+
+
+Watchdogs for Api Documentation
+http://watchdocs.io/
+
+
+
+`skip_before_action :verify_authenticity_token` in the controllers to prevent Rails looking for a CSRF token otherwise the endpoints won’t work.
+
+https://www.sitepoint.com/introduction-to-using-jwt-in-rails/
+
+https://medium.com/@lukerollans/implementing-jwt-authentication-as-a-custom-devise-strategy-54948bddb134
+
+GraphQl
+https://medium.com/@lukerollans/implementing-jwt-authentication-as-a-custom-devise-strategy-54948bddb134
+
+
+Good Documentation
+https://github.com/rjurado01/rails_jwt_auth
+
+With Bcrypt
+https://www.pluralsight.com/guides/token-based-authentication-with-ruby-on-rails-5-api
+
+
+https://medium.com/@ciphitech/token-based-authentication-api-in-rails-with-the-help-of-jwt-and-knock-5715bc766936
+
+Konck Gem
+https://thinkster.io/tutorials/rails-json-api/setting-up-users-and-authentication-for-our-api
+
+Refresh Token
+https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/
+
+React With Rails
+https://medium.com/@bruno_boehm/reactjs-ruby-on-rails-api-heroku-app-2645c93f0814
+https://medium.com/@pamit/todo-list-building-a-react-app-with-rails-api-7a3027907665
+https://medium.com/quick-code/simple-rails-crud-app-with-react-frontend-using-react-rails-gem-b708b89a9419
+
+API Only
+https://scotch.io/tutorials/build-a-restful-json-api-with-rails-5-part-one
+https://github.com/vasilakisfil/rails5_api_tutorial
+
+
+GOOD
+https://github.com/riskimidiw/rails-jwt
+https://medium.com/binar-academy/rails-api-jwt-authentication-a04503ea3248
+
+jwt_revocation_strategy
+https://auth0.com/blog/blacklist-json-web-token-api-keys/
+
+Expiration time
+https://jwt.io/#libraries
+
+
+Token Validation
+a "log out all devices" event (manual button, password change)
+a "user no longer valid" event (user deletion)
+
+Token Working after blacklisting
+https://github.com/tymondesigns/jwt-auth/issues/1060
