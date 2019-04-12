@@ -27,17 +27,26 @@ class ApplicationController < ActionController::API
     header = header.split(' ').last if header
     begin
       @decoded = JsonWebToken.decode(header)
-      if @decoded['scp'] == "user"
-        @current_user = User.find(@decoded[:sub])
-        if JWTBlacklist.find_by(jti:@decoded[:jti])
-          render json: { errors: "Token no longer valid" }, status: :unauthorized
-        end
-      elsif @decoded['scp'] == "admin"
-        @current_admin = User.find(@decoded[:sub])
-        if JWTBlacklist.find_by(jti:@decoded[:jti])
-          render json: { errors: "Token no longer valid" }, status: :unauthorized
-        end
-      end  
+      @current_user = User.find(@decoded[:sub])
+      if JWTBlacklist.find_by(jti:@decoded[:jti])
+        render json: { errors: "Token no longer valid" }, status: :unauthorized
+      end
+    rescue ActiveRecord::RecordNotFound => e
+      render json: { errors: e.message }, status: :unauthorized
+    rescue JWT::DecodeError => e
+      render json: { errors: e.message }, status: :unauthorized
+    end
+  end
+
+  def admin_check
+    header = request.headers['Authorization']
+    header = header.split(' ').last if header
+    begin
+      @decoded = JsonWebToken.decode(header)
+      @current_admin = Admin.find(@decoded[:sub])
+      if JWTBlacklist.find_by(jti:@decoded[:jti])
+        render json: { errors: "Token no longer valid" }, status: :unauthorized
+      end
     rescue ActiveRecord::RecordNotFound => e
       render json: { errors: e.message }, status: :unauthorized
     rescue JWT::DecodeError => e

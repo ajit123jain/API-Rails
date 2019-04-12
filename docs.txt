@@ -246,3 +246,6 @@ footer_linkedin_url:
 footer_facebook_url
 footer_twitter_url:
 footer_background_url: 
+
+
+Rename the table 
