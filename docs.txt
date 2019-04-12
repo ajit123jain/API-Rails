@@ -9,8 +9,6 @@ https://medium.com/@mazik.wyry/rails-5-api-jwt-setup-in-minutes-using-devise-716
 Watchdogs for Api Documentation
 http://watchdocs.io/
 
-
-
 `skip_before_action :verify_authenticity_token` in the controllers to prevent Rails looking for a CSRF token otherwise the endpoints won’t work.
 
 https://www.sitepoint.com/introduction-to-using-jwt-in-rails/
