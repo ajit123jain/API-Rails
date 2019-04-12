@@ -63,3 +63,188 @@ a "user no longer valid" event (user deletion)
 
 Token Working after blacklisting
 https://github.com/tymondesigns/jwt-auth/issues/1060
+
+
+Tasks :
+1.Admin Login
+2.User Login CRUD
+3.Admin Project Creation CRUD
+4.User Project CRUD
+5.ER Diagram from USER
+
+
+Web Builder
+http://waiting-for-dev.github.io/blog/2017/01/23/stand_up_for_jwt_revocation/
+https://techwiser.com/open-source-website-builder/
+https://superbwebsitebuilders.com/open-source/
+
+
+Docs
+https://www.brainleaf.com/blog/contracts/building-scope-work-sow-document-website-project/
+https://github.com/topics/website-builder
+
+https://github.com/lynndylanhurley/devise_token_auth
+
+https://stackoverflow.com/questions/36137385/json-web-token-with-devise
+
+
+
+
+User Signup
+User Siginin
+User Logout
+User Articles
+
+Admin Signup
+Admin Signin
+Admin Logout
+Admin  
+
+
+
+Admin
+signup
+login
+logout
+
+
+User
+Templates Seed
+Project
+Admin Can see manage users 
+Admin Can Manage Project
+Admin Can Manage Templates
+Email Functionality
+Mana Issue
+
+Questions   
+
+
+
+
+User APIS
+Signup
+POST: localhost:3000/signup/
+Body
+{"user":{
+"email":"ajitkumarjain123@gmail.com",
+"password":"ajit123jain"
+  
+}}
+
+Response:
+{
+  "id": 5,
+  "email": "ajitkumarjain123@gmail.com",
+  "created_at": "2019-04-12T05:01:59.316Z",
+  "updated_at": "2019-04-12T05:01:59.316Z"
+}
+
+Login :
+1.If Email not confirmed
+POST: localhost:3000/login/ 
+Body: 
+{"user":{
+"email":"ajitkumarjain123@gmail.com",
+"password":"ajit123jain"
+  
+}}
+Response:
+{
+    "error": "You have to confirm your email address before continuing."
+}
+2.If Email confirmed Password not correct
+{
+    "error": "Invalid Email or password."
+}
+3.Email Confirmed and Password and Everything is correct
+{
+  "id": 4,
+  "email": "ajit.jain@avalonlabs.co",
+  "created_at": "2019-04-12T04:59:28.593Z",
+  "updated_at": "2019-04-12T05:00:13.299Z"
+}
+4.GET: Email Confirmation
+URL: http://localhost:3000/confirmation?confirmation_token=AdSYQvWifSBYUXk9p1Tg
+Reponse: 
+{
+  "id": 4,
+  "email": "ajit.jain@avalonlabs.co",
+  "created_at": "2019-04-12T04:59:28.593Z",
+  "updated_at": "2019-04-12T05:00:13.299Z"
+}
+
+5.If Confirming Email Again
+{
+  "email": [
+      "was already confirmed, please try signing in"
+  ]
+} 
+
+6.Logut User: 
+URL: DELETE: localhost:3000/logout
+Response: No Content
+
+7.Update User password
+URL: PUT:localhost:3000/signup
+Body: {"user":{
+  "email":"ajitkumarjain123@gmail.com", "password":"sonu123jain","current_password":"ajit123jain"}}
+Response: No Content
+
+8.Reset Password Authentication
+URL: POST: localhost:3000/password/
+Body: {
+  "user":{
+  "email":"ajitkumarjain123@gmail.com"
+  }
+}
+Response: 201 Created
+
+9.Update Forget PAssword
+Patch: localhost:3000/password/
+Body:{"user":{"password":"ajit123jain","reset_password_token":"8zmBcSwb4_8gUXEDQG16"}}
+Response: No Content
+
+
+
+1.How Do I read token from Email for Email and Confirmation and Password Reset Token
+2.Project: 
+3.Templates:    
+
+User: Can have many projects
+      
+Project: Will have user_id 
+         template_id 
+
+Templates: 
+
+         
+
+Single Page Webistes
+https://startbootstrap.com/previews/agency/
+https://startbootstrap.com/previews/creative/
+https://startbootstrap.com/previews/freelancer/
+
+
+Templates: 
+navigation_logo: 'image-url'
+navigation_items:['services','portfolio','about','team','contact']
+home_heading: "welcome to something"
+home_text: "I am xyz".
+
+navigation_item_1_text: "This is Services"
+navigation_item_2_text: "This is portfolio"
+navigation_item_2_text: "This is about"
+navigation_item_2_text: "This us abou the team"
+navigation_item_2_text: "This contact text"
+
+team_members: []
+
+contact_button_text: "Send Message"
+
+copyright_text: "this is form xyz."
+
+footer_linkedin_url:
+footer_facebook_url
+footer_twitter_url:
+footer_background_url: 

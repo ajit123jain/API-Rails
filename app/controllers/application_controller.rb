@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::API
-    def render_resource(resource)
+  include ActionController::MimeResponds
+  respond_to :json
+  def render_resource(resource)
     if resource.errors.empty?
       render json: resource
     else
@@ -25,7 +27,17 @@ class ApplicationController < ActionController::API
     header = header.split(' ').last if header
     begin
       @decoded = JsonWebToken.decode(header)
-      @current_user = User.find(@decoded[:sub])
+      if @decoded['scp'] == "user"
+        @current_user = User.find(@decoded[:sub])
+        if JWTBlacklist.find_by(jti:@decoded[:jti])
+          render json: { errors: "Token no longer valid" }, status: :unauthorized
+        end
+      elsif @decoded['scp'] == "admin"
+        @current_admin = User.find(@decoded[:sub])
+        if JWTBlacklist.find_by(jti:@decoded[:jti])
+          render json: { errors: "Token no longer valid" }, status: :unauthorized
+        end
+      end  
     rescue ActiveRecord::RecordNotFound => e
       render json: { errors: e.message }, status: :unauthorized
     rescue JWT::DecodeError => e
